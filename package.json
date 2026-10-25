@@ -1,1 +1,11 @@
-{"name":"imgcomp","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test tests/*.test.js","check":"node --check app.js && node --check core.js && node --check media.js && node --check hash-worker.js && node --check sha256.js"}}
+{
+  "name": "imgcomp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check app.js && node --check core.js && node --check media.js && node --check hash-worker.js && node --check sha256.js",
+    "test:browser": "python tests/browser.py"
+  }
+}

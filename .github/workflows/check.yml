@@ -15,3 +15,17 @@ jobs:
           node-version: '24'
       - run: npm run check
       - run: npm test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.58.0
+      - run: python -m playwright install --with-deps chromium
+      - run: npm run test:browser
+        env:
+          CHROMIUM_PATH: ''
+          BROWSER_OUTPUT: work/browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-validation
+          path: work/browser
